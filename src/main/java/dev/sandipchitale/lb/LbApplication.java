@@ -4,7 +4,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
-import org.springframework.cloud.gateway.server.mvc.common.MvcUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,7 +39,7 @@ public class LbApplication {
             String gatewayPort = httpServletRequest.getHeader("gatewayport");
             return "Hello from "
                     + serverProperties.getPort() +
-                    (gatewayPort != null ?  " From gateway at port: " + gatewayPort : "");
+                    (gatewayPort != null ? " From gateway at port: " + gatewayPort : "");
         }
     }
 

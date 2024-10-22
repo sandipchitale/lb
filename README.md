@@ -12,6 +12,15 @@ Second running at port 8085 and balancing two Springboot rest app Microservice r
 - `host.docker.internal:8086`
 - `host.docker.internal:8087`
 
+The same app `dev.sandipchitale.lb.LbApplication` plays the role of Gateway and Microservice. Simply run it four times with different port numbers:
+
+- --server.port=8081
+- --server.port=8082
+- --server.port=8086
+- --server.port=8087
+
+The Gateway uses Spring Cloud Gateway MVC.fn to proxy requests with path `/microservice` to load balancer at `http://localhost:8085`. 
+
 # Getting Started
 
 ### Reference Documentation

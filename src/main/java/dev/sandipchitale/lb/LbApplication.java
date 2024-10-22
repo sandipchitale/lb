@@ -56,15 +56,13 @@ public class LbApplication {
         @Bean
         RouterFunction<ServerResponse> microservice() {
             return route("microservice")
-                    .route(path("/microservice"), http())
+                    .route(path("/microservice"), http(URI.create("http://localhost:8085/")))
                     .before((ServerRequest serverRequest) -> {
-                        ServerRequest request = ServerRequest
+                        return ServerRequest
                                 .from(serverRequest)
                                 .uri(URI.create("http://localhost:8085/"))
                                 .header("gatewayport", String.valueOf(serverProperties.getPort()))
                                 .build();
-                        MvcUtils.setRequestUrl(request, request.uri());
-                        return request;
                     })
                     .build();
         }

@@ -1,9 +1,16 @@
 # lb
 
-A simple implementation of HAProxy based load balancer running at port 8080 and balancing two Springboot rest app backends running at:
+A simple implementation of HAProxy based load balancer with two proxies
+
+First running at port 8080 and balancing two Springboot rest app Gateways running at:
 
 - `host.docker.internal:8081`
 - `host.docker.internal:8082`
+
+Second running at port 8085 and balancing two Springboot rest app Microservice running at:
+
+- `host.docker.internal:8086`
+- `host.docker.internal:8087`
 
 # Getting Started
 

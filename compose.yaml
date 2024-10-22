@@ -6,7 +6,10 @@ services:
     container_name: lb
     image: haproxy:latest
     ports:
+      # Port for gateway loadbalancer
       - "8080:8080"
+      # Port for micro-service loadbalancer
       - "8085:8085"
     volumes:
+      # haproxy config file
       - "./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg"
